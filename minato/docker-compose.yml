@@ -13,7 +13,7 @@ services:
       --syncmode=full --gcmode=archive --maxpeers=100 --authrpc.vhosts=* 
       --authrpc.addr=0.0.0.0 --authrpc.port=8551 --authrpc.jwtsecret=/etc/optimism/jwt.txt --metrics 
       --metrics.addr=0.0.0.0 --metrics.expensive --metrics.port=6060 
-      --rollup.disabletxpoolgossip=true --db.engine=pebble --state.scheme=hash 
+      --rollup.disabletxpoolgossip=false --rpc.allow-unprotected-txs=true --nat=extip:<your_node_public_ip> --db.engine=pebble --state.scheme=hash 
       --port=30303 
       --bootnodes=enode://6526c348274c54e7b4184014741897eb25e12ca388f588b0265bb2246caeea87ed5fcb2d55b7b08a90cd271a53bc76decb6d1ec37f219dbe4cd3ed53a888118b@peering-02.prd.hypersonicl2.com:30303,enode://34f172c255b11f64828d73c90a60395691e89782639423d434385594dd38b434ddffb78ad411da6fd37cbda6d0f93e17ceae399ac4f2594b0d54eb8c83c27de9@peering-01.prd.hypersonicl2.com:30303"
     ports:

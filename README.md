@@ -9,6 +9,9 @@ This guide provides instructions on setting up a Minato node using Docker and Do
 
 Make sure you have the latest versions of Docker and Docker Compose installed.
 
+## Hardware requirement
+We recommend using the `i3.2xlarge` AWS instance type or equivalent hardware. If you want to set it up as a public RPC, you will need to adjust node resources based on your traffic.
+
 ## Setup Instructions
 
 1. **Generate JWT Secret**
@@ -36,6 +39,8 @@ Make sure you have the latest versions of Docker and Docker Compose installed.
    L1_BEACON=https://sepolia-beacon-l1.url
    P2P_ADVERTISE_IP=<Node Public IP>
    ```
+
+In some node providers, you need to specify your node's public IP for `op-geth`. To do this, replace `<your_node_public_ip>` with your actual public IP in the `--nat=extip:<your_node_public_ip>` parameter within the `docker-compose.yml` file, specifically under the `op-geth-minato` service settings.</b> 
 
    <b>Recommendation: For faster synchronization, it's recommended to have the L1 node geographically close to the Minato node.</b>
 
