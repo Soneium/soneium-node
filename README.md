@@ -40,7 +40,7 @@ We recommend using the `i3.2xlarge` AWS instance type or equivalent hardware. If
    P2P_ADVERTISE_IP=<Node Public IP>
    ```
 
-In some node providers, you need to specify your node's public IP for `op-geth`. To do this, replace `<your_node_public_ip>` with your actual public IP in the `--nat=extip:<your_node_public_ip>` parameter within the `docker-compose.yml` file, specifically under the `op-geth-minato` service settings.</b> 
+In some node providers, you need to specify your node's public IP for `op-geth`. To do this, replace `<your_node_public_ip>` with your actual public IP in the `--nat=extip:<your_node_public_ip>` parameter within the `docker-compose.yml` file, specifically under the `op-geth-minato` service settings. 
 
    <b>Recommendation: For faster synchronization, it's recommended to have the L1 node geographically close to the Minato node.</b>
 
