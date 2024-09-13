@@ -92,8 +92,8 @@ After each restart, it takes approximately 2 minutes for the node to start synci
 Download the `op-node` and `geth` binaries from the release page:
 
 ```bash
-wget https://github.com/Web3-Technology-Planning-Office-SNCLabs/soneium-node/releases/download/v1.9.0-ec45f663-1723023640/op-node
-wget https://github.com/Web3-Technology-Planning-Office-SNCLabs/soneium-node/releases/download/v1.101315.3-stable-8af19cf2/geth
+wget https://github.com/Soneium/soneium-node/releases/download/v1.9.0-ec45f663-1723023640/op-node
+wget https://github.com/Soneium/soneium-node/releases/download/v1.101315.3-stable-8af19cf2/geth
 ```
 
 ### Step 2: Set Executable Permissions
