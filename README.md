@@ -1,6 +1,12 @@
 # Minato Node Setup
 
-This guide provides instructions on setting up a Minato node using Docker and Docker Compose.
+This guide provides instructions on setting up a Minato node using Docker, Docker Compose, and binary installation.
+
+## Hardware requirement
+We recommend using the `i3.2xlarge` AWS instance type or equivalent hardware. If you want to set it up as a public RPC, you will need to adjust node resources based on your traffic.
+
+---------------------------
+# Docker installation
 
 ## Prerequisites
 
