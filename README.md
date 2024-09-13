@@ -15,9 +15,6 @@ We recommend using the `i3.2xlarge` AWS instance type or equivalent hardware. If
 
 Make sure you have the latest versions of Docker and Docker Compose installed.
 
-## Hardware requirement
-We recommend using the `i3.2xlarge` AWS instance type or equivalent hardware. If you want to set it up as a public RPC, you will need to adjust node resources based on your traffic.
-
 ## Setup Instructions
 
 1. **Generate JWT Secret**
