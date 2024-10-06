@@ -113,7 +113,7 @@ Create the necessary directories and generate the JWT secret:
 ```bash
 sudo mkdir /etc/optimism
 openssl rand -hex 32 > jwt.txt
-git clone git@github.com:Web3-Technology-Planning-Office-SNCLabs/soneium-node.git
+git clone https://github.com/Soneium/soneium-node.git
 cd soneium-node/minato
 openssl rand -hex 32 > jwt.txt
 sudo mv -t /etc/optimism/ minato-genesis.json jwt.txt minato-rollup.json
@@ -123,7 +123,7 @@ sudo mv -t /etc/optimism/ minato-genesis.json jwt.txt minato-rollup.json
 Initialize `geth` with the genesis configuration:
 
 ```bash
-sudo geth init --datadir=/data/optimism/ /etc/optimism/genesis.json
+sudo geth init --datadir=/data/optimism/ /etc/optimism/minato-genesis.json
 ```
 
 ## Service Configuration
