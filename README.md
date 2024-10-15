@@ -112,7 +112,6 @@ Create the necessary directories and generate the JWT secret:
 
 ```bash
 sudo mkdir /etc/optimism
-openssl rand -hex 32 > jwt.txt
 git clone https://github.com/Soneium/soneium-node.git
 cd soneium-node/minato
 openssl rand -hex 32 > jwt.txt
