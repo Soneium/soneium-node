@@ -1,0 +1,39 @@
+services:
+  op-geth:
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101408.0
+    restart: unless-stopped
+    stop_grace_period: 5m
+    entrypoint: /scripts/start-op-geth.sh
+    environment:
+      - NETWORK=${NETWORK}
+      - DATADIR=/data
+    ports:
+      - 8545:8545
+      - 30304:30304/udp
+      - 30303:30303/tcp
+    volumes:
+      - data:/data
+      - ./${NETWORK}:/chainconfig
+      - ./scripts/:/scripts
+
+  op-node:
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.9.3
+    environment:
+      - DATADIR=/data
+    env_file:
+      - path: ./${NETWORK}/env
+    depends_on:
+      op-geth:
+        condition: service_started
+    entrypoint: /scripts/start-op-node.sh
+    ports:
+      - 9545:9545
+      - 9222:9222/tcp
+      - 9223:9223/udp
+    volumes:
+      - data:/data
+      - ./${NETWORK}:/chainconfig
+      - ./scripts/:/scripts
+
+volumes:
+  data:
