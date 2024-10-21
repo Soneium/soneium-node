@@ -2,11 +2,11 @@ version: '3.8'
 
 services:
   op-geth-minato:
-    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101315.1
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101408.0
     entrypoint: >
       /bin/sh -c "
       cp /config/minato-genesis.json /data/optimism/genesis.json &&
-      geth init --datadir=/data/optimism /data/optimism/genesis.json &&
+      geth init --state.scheme=hash --datadir=/data/optimism /data/optimism/genesis.json &&
       geth --datadir=/data/optimism --http --http.corsdomain=* --http.vhosts=* 
       --http.addr=0.0.0.0 --http.api=web3,debug,eth,txpool,net,engine --ws 
       --ws.addr=0.0.0.0 --ws.port=8546 --ws.origins=* --ws.api=debug,eth,txpool,net,engine 
@@ -31,7 +31,7 @@ services:
       - minato
 
   op-node-minato:
-    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.9.0
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.9.3
     environment:
       - L1_URL
       - L2_URL
