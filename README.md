@@ -89,8 +89,8 @@ After each restart, it takes approximately 2 minutes for the node to start synci
 Download the `op-node` and `geth` binaries from the release page:
 
 ```bash
-wget https://github.com/Soneium/soneium-node/releases/download/v1.9.0-ec45f663-1723023640/op-node
-wget https://github.com/Soneium/soneium-node/releases/download/v1.101315.3-stable-8af19cf2/geth
+wget https://github.com/Soneium/soneium-node/releases/download/1.9.3-e81c50de-1727294020/op-node
+wget https://github.com/Soneium/soneium-node/releases/download/1.101408.0-stable-5c2e7586/geth
 ```
 
 ### Step 2: Set Executable Permissions
@@ -122,7 +122,7 @@ sudo mv -t /etc/optimism/ minato-genesis.json jwt.txt minato-rollup.json
 Initialize `geth` with the genesis configuration:
 
 ```bash
-sudo geth init --datadir=/data/optimism/ /etc/optimism/minato-genesis.json
+sudo geth init --state.scheme=hash --datadir=/data/optimism/ /etc/optimism/minato-genesis.json
 ```
 
 ## Service Configuration
@@ -164,7 +164,7 @@ ExecStart=/usr/local/bin/op-node \
   --metrics.enabled \
   --p2p.advertise.ip=<your-public-ip> \
   --metrics.port=7310 \
-  --rollup.config=/etc/optimism/rollup.json
+  --rollup.config=/etc/optimism/minato-rollup.json
 
 Restart=always
 RestartSec=10
@@ -195,19 +195,19 @@ Type=simple
 ExecStart=/usr/local/bin/geth \
   --datadir=/data/optimism \
   --http \
-  --http.corsdomain="*" \
-  --http.vhosts="*" \
+  --http.corsdomain=* \
+  --http.vhosts=* \
   --http.addr=0.0.0.0 \
   --http.api=web3,debug,eth,txpool,net,engine \
   --ws \
   --ws.addr=0.0.0.0 \
   --ws.port=8546 \
-  --ws.origins="*" \
+  --ws.origins=* \
   --ws.api=debug,eth,txpool,net,engine \
   --syncmode=full \
   --gcmode=archive \
   --maxpeers=100 \
-  --authrpc.vhosts="*" \
+  --authrpc.vhosts=* \
   --authrpc.addr=0.0.0.0 \
   --authrpc.port=8551 \
   --authrpc.jwtsecret=/etc/optimism/jwt.txt \
@@ -217,10 +217,11 @@ ExecStart=/usr/local/bin/geth \
   --metrics.port=6060 \
   --rollup.disabletxpoolgossip=false \
   --rpc.allow-unprotected-txs=true \
-  --nat=extip:<your_node_public_ip> \
+  --nat=extip:<your-public-ip> \
   --db.engine=pebble \
   --state.scheme=hash \
-  --bootnodes=enode://6526c348274c54e7b4184014741897eb25e12ca388f588b0265bb2246caeea87ed5fcb2d55b7b08a90cd271a53bc76decb6d1ec37f219dbe4cd3ed53a888118b@peering-02.prd.hypersonicl2.com:30303,enode://34f172c255b11f64828d73c90a60395691e89782639423d434385594dd38b434ddffb78ad411da6fd37cbda6d0f93e17ceae399ac4f2594b0d54eb8c83c27de9@peering-01.prd.hypersonicl2.com:30303"
+  --bootnodes=enode://6526c348274c54e7b4184014741897eb25e12ca388f588b0265bb2246caeea87ed5fcb2d55b7b08a90cd271a53bc76decb6d1ec37f219dbe4cd3ed53a888118b@peering-02.prd.hypersonicl2.com:30303,enode://34f172c255b11f64828d73c90a60395691e89782639423d434385594dd38b434ddffb78ad411da6fd37cbda6d0f93e17ceae399ac4f2594b0d54eb8c83c27de9@peering-01.prd.hypersonicl2.com:30303
+
 
 Restart=always
 RestartSec=10
