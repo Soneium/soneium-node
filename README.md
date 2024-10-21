@@ -195,19 +195,19 @@ Type=simple
 ExecStart=/usr/local/bin/geth \
   --datadir=/data/optimism \
   --http \
-  --http.corsdomain="*" \
-  --http.vhosts="*" \
+  --http.corsdomain=* \
+  --http.vhosts=* \
   --http.addr=0.0.0.0 \
   --http.api=web3,debug,eth,txpool,net,engine \
   --ws \
   --ws.addr=0.0.0.0 \
   --ws.port=8546 \
-  --ws.origins="*" \
+  --ws.origins=* \
   --ws.api=debug,eth,txpool,net,engine \
   --syncmode=full \
   --gcmode=archive \
   --maxpeers=100 \
-  --authrpc.vhosts="*" \
+  --authrpc.vhosts=* \
   --authrpc.addr=0.0.0.0 \
   --authrpc.port=8551 \
   --authrpc.jwtsecret=/etc/optimism/jwt.txt \
@@ -217,10 +217,11 @@ ExecStart=/usr/local/bin/geth \
   --metrics.port=6060 \
   --rollup.disabletxpoolgossip=false \
   --rpc.allow-unprotected-txs=true \
-  --nat=extip:<your_node_public_ip> \
+  --nat=extip:178.128.199.180 \
   --db.engine=pebble \
   --state.scheme=hash \
-  --bootnodes=enode://6526c348274c54e7b4184014741897eb25e12ca388f588b0265bb2246caeea87ed5fcb2d55b7b08a90cd271a53bc76decb6d1ec37f219dbe4cd3ed53a888118b@peering-02.prd.hypersonicl2.com:30303,enode://34f172c255b11f64828d73c90a60395691e89782639423d434385594dd38b434ddffb78ad411da6fd37cbda6d0f93e17ceae399ac4f2594b0d54eb8c83c27de9@peering-01.prd.hypersonicl2.com:30303"
+  --bootnodes=enode://6526c348274c54e7b4184014741897eb25e12ca388f588b0265bb2246caeea87ed5fcb2d55b7b08a90cd271a53bc76decb6d1ec37f219dbe4cd3ed53a888118b@peering-02.prd.hypersonicl2.com:30303,enode://34f172c255b11f64828d73c90a60395691e89782639423d434385594dd38b434ddffb78ad411da6fd37cbda6d0f93e17ceae399ac4f2594b0d54eb8c83c27de9@peering-01.prd.hypersonicl2.com:30303
+
 
 Restart=always
 RestartSec=10
