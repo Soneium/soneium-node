@@ -164,7 +164,7 @@ ExecStart=/usr/local/bin/op-node \
   --metrics.enabled \
   --p2p.advertise.ip=<your-public-ip> \
   --metrics.port=7310 \
-  --rollup.config=/etc/optimism/rollup.json
+  --rollup.config=/etc/optimism/minato-rollup.json
 
 Restart=always
 RestartSec=10
@@ -217,7 +217,7 @@ ExecStart=/usr/local/bin/geth \
   --metrics.port=6060 \
   --rollup.disabletxpoolgossip=false \
   --rpc.allow-unprotected-txs=true \
-  --nat=extip:178.128.199.180 \
+  --nat=extip:<your-public-ip> \
   --db.engine=pebble \
   --state.scheme=hash \
   --bootnodes=enode://6526c348274c54e7b4184014741897eb25e12ca388f588b0265bb2246caeea87ed5fcb2d55b7b08a90cd271a53bc76decb6d1ec37f219dbe4cd3ed53a888118b@peering-02.prd.hypersonicl2.com:30303,enode://34f172c255b11f64828d73c90a60395691e89782639423d434385594dd38b434ddffb78ad411da6fd37cbda6d0f93e17ceae399ac4f2594b0d54eb8c83c27de9@peering-01.prd.hypersonicl2.com:30303
