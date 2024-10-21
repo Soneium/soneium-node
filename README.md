@@ -122,7 +122,7 @@ sudo mv -t /etc/optimism/ minato-genesis.json jwt.txt minato-rollup.json
 Initialize `geth` with the genesis configuration:
 
 ```bash
-sudo geth init --datadir=/data/optimism/ /etc/optimism/minato-genesis.json
+sudo geth init --state.scheme=hash --datadir=/data/optimism/ /etc/optimism/minato-genesis.json
 ```
 
 ## Service Configuration
