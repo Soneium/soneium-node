@@ -50,7 +50,7 @@ services:
       - OP_NODE_P2P_PEER_BANNING
       - METRICS_ENABLED
       - METRICS_PORT
-      - GETH_OVERRIDE_FJORD
+      - OP_NODE_OVERRIDE_FJORD
       - OP_NODE_OVERRIDE_GRANITE
     command: >
       op-node --l1=${L1_URL} --l2=${L2_URL} --rpc.addr=${RPC_ADDR} --rpc.port=${RPC_PORT}
@@ -59,7 +59,7 @@ services:
       --p2p.priv.path=${P2P_PRIV_PATH} --p2p.discovery.path=${P2P_DISCOVERY_PATH} 
       --p2p.peerstore.path=${P2P_PEERSTORE_PATH} --metrics.enabled=${METRICS_ENABLED}
       --p2p.advertise.ip=${P2P_ADVERTISE_IP} --p2p.ban.peers=${OP_NODE_P2P_PEER_BANNING}
-      --metrics.port=${METRICS_PORT} --override.fjord=${GETH_OVERRIDE_FJORD} --override.granite=${OP_NODE_OVERRIDE_GRANITE} --rollup.config=${ROLLUP_CONFIG}
+      --metrics.port=${METRICS_PORT} --override.fjord=${OP_NODE_OVERRIDE_FJORD} --override.granite=${OP_NODE_OVERRIDE_GRANITE} --rollup.config=${ROLLUP_CONFIG}
     ports:
       - "9545:9545"
       - "7310:7310"
